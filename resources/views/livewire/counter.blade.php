@@ -6,5 +6,18 @@
         <h2>{{ $count }}</h2>
     </div>
     <p><button wire:click="inc">+1</button></p>
-    <input type="text" wire:model="message">{{ $message }}
+    <input type="text" wire:model="message">{{ $message }}こっちはすぐ反映する
+    @if(!$message)
+    <p style="color:red;font-weight:bold">文字を入力してください。</p>
+    @else
+    <p>文字を入力しました。</p>
+    @endif
+
+    <h2>ユーザー一覧</h2>
+    <ol>
+        @foreach($users as $user)
+            <li>{{$user->name}}</li>
+        @endforeach
+    </ol>
 </div>{{-- 一番下にdivタグやんないとwire:clicl動かん--}}
+ 
