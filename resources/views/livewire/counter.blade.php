@@ -13,11 +13,13 @@
     <p>文字を入力しました。</p>
     @endif
 
-    <h2>ユーザー一覧</h2>
-    <ol>
-        @foreach($users as $user)
-            <li>{{$user->name}}</li>
-        @endforeach
-    </ol>
+    <div>
+        <h2>ユーザー一覧</h2>
+        <ol>
+            @foreach($users as $user)
+                <li>{{$user->name}}<button wire:click="delbtn({{ $user->id}})">★削除★</button></li>
+            @endforeach
+        </ol>
+    </div>
 </div>{{-- 一番下にdivタグやんないとwire:clicl動かん--}}
  
